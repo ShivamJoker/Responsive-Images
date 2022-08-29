@@ -11,8 +11,15 @@
           Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
       }
 
+      * {
+        text-align: center;
+      }
       kbd {
         font-size: 1.2rem;
+      }
+
+      h3 {
+        margin: 0.2rem 0rem;
       }
 
       picture,
@@ -22,9 +29,21 @@
         max-width: 500px;
       }
 
-      section p {
+      picture h3 {
+        margin-top: -32px;
+        text-align: center;
+        font-weight: 600;
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(15px);
+        /* transform: translateY(-32px); */
+        color: #fff;
+        padding: 4px 0px;
+      }
+
+      aside p {
         width: 100%;
         max-width: 400px;
+        text-align: left;
       }
 
       hr {
@@ -41,11 +60,12 @@
   </head>
   <body>
     <main>
-      <h3>Responsive image with different sizes & DPR</h3>
+      <h2>Responsive image with different sizes & DPR</h2>
       <h3>
-        Current viewport width: <kbd id="device-width">100</kbd>px | DPR:
+        Viewport width: <kbd id="device-width">0</kbd>px | DPR:
         <kbd id="dpr">0</kbd>
       </h3>
+      <h3>Expected Image should be &gE; <kbd id="expected-width">0</kbd>px</h3>
       <p>
         Resize or zoom into your browser to see the changes right away
         <strong>(Works best in Firefox)</strong>
@@ -64,7 +84,7 @@
               ./images/doggo-1000w.avif 1000w,
               ./images/doggo-1500w.avif 1500w
             "
-            sizes="(min-width: 960px) 500px, (min-width: 500px) 40vw, 100vw"
+            sizes="(min-width: 800px) 500px, (min-width: 500px) 60vw, 100vw"
           />
 
           <!--  fallback to webp -->
@@ -78,9 +98,10 @@
               ./images/doggo-1000w.webp 1000w,
               ./images/doggo-1500w.webp 1500w
             "
-            sizes="(min-width: 960px) 500px, (min-width: 500px) 40vw, 100vw"
+            sizes="(min-width: 800px) 500px, (min-width: 500px) 60vw, 100vw"
             alt="a cute doggo eating icecream"
           />
+          <h3>Image width: <kbd id="img-width">100</kbd>px</h3>
         </picture>
 
         <aside>
@@ -105,26 +126,6 @@
         </aside>
       </section>
     </main>
-    <script>
-      const width = document.querySelector("#device-width");
-      const dpr = document.querySelector("#dpr");
-
-      const updatePixelRatio = () => {
-        const pr = window.devicePixelRatio;
-        dpr.innerText = pr.toFixed(2);
-        matchMedia(`(resolution: ${pr}dppx)`).addEventListener(
-          "change",
-          updatePixelRatio,
-          { once: true }
-        );
-      };
-
-      updatePixelRatio();
-
-      width.innerText = window.innerWidth;
-      window.addEventListener("resize", () => {
-        width.innerText = window.innerWidth;
-      });
-    </script>
+    <script src="./index.js"></script>
   </body>
 </html>
