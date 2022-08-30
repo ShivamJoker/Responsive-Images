@@ -25,6 +25,8 @@
       section {
         display: flex;
         justify-content: center;
+        align-items: center;
+        flex-direction: column;
       }
 
       picture,
@@ -56,8 +58,12 @@
       }
 
       @media (min-width: 500px) {
+        aside p {
+          margin-top: 0;
+        }
         section {
-          display: flex;
+          flex-direction: row;
+          align-items: flex-start;
           gap: 2rem;
         }
       }
@@ -79,7 +85,6 @@
       <hr />
       <section>
         <picture>
-          <br />
           <source
             type="image/avif"
             srcset="
