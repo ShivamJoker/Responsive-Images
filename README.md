@@ -3,7 +3,11 @@ Demo of using a responsive image to load different types of image on different d
 
 See it in action - https://responsive-images.pages.dev/
 
-Video demo:
+## Video Tutorial
+
+[<img src="https://user-images.githubusercontent.com/23727670/188132872-c98a177a-b7e1-4035-a96c-f1b3aaed5076.jpg" width="320" height="180" height=""/>](https://youtu.be/97TGWROPyUE)
+
+## Video demo:
 
 https://user-images.githubusercontent.com/23727670/187479618-c7eba905-5f41-4cc4-908b-3117ba215679.mp4
 
